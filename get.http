@@ -1,0 +1,10 @@
+POST http://localhost:8080/tasks/ HTTP/1.1
+content-type: application/json
+Authorization:Basic danilo92:danilo92
+
+{
+    "titulo":"Testando a gravação de nova tarefa usando o rest client do vscode",
+    "descricao":"parece ser muito bom ",
+    "inicio":"2023-10-27T17:50",
+    "fim":"2023-10-29T18:00"
+}

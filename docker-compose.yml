@@ -1,0 +1,31 @@
+version: "3.7"
+services:
+  api: 
+    build: .
+    container_name: todolist-api
+    volumes:
+      - dkmo:/var/lib/app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysqldb
+    restart: always
+
+  mysqldb:
+    platform: linux/x86_64
+    image: mysql:5.7
+    container_name: todolist-sql
+    environment:
+      - MYSQL_DATABASE=todolist
+      - MYSQL_USER=danilo
+      - MYSQL_PASSWORD=danilo
+      - MYSQL_ROOT_PASSWORD=danilo
+      
+    ports:
+      - "3306:3306"
+    volumes:
+      - dkmo:/var/lib/mysql
+  
+volumes:
+  dkmo:
+
